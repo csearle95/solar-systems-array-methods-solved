@@ -10,11 +10,31 @@
 
 export function minBy(array, cb) {
   // Your code goes here...
-
+  if(array.length === 0) {
+    return undefined
+  }
+  return array.reduce(function(lowest, current) {
+    const currentVal = cb(current);
+    const lowestVal = cb(lowest);
+    
+    return currentVal < lowestVal ? current : lowest;
+  }
+  )
 }
+
 
 export function maxBy(array, cb) {
   // Your code goes here...
+  if(array.length === 0) {
+    return undefined
+  }
+  return array.reduce(function(highest, current) {
+    const currentVal = cb(current);
+    const highestVal = cb(highest);
+    
+    return currentVal > highestVal ? current : highest;
+  }
+  )
 
 }
 
